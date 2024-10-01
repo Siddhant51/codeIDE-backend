@@ -6,10 +6,10 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 
 const app = express();
-// Allow requests from your frontend's domain
+// Allow any origin
 app.use(
   cors({
-    origin: "https://code-ide-frontend.vercel.app", // Specify your frontend domain
+    origin: "*", // This allows all domains
   })
 );
 app.use(express.json());
