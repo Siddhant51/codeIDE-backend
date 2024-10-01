@@ -6,12 +6,21 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 
 const app = express();
-// Allow any origin
+
+// Handle OPTIONS request (preflight requests for all routes)
+app.options("*", cors());
+
+// Allow only specific frontend URLs and allow credentials
 app.use(
   cors({
-    origin: "*", // This allows all domains
+    origin: "*", // Frontend URL(s)
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+    credentials: true, // Allow credentials (if using cookies or tokens)
   })
 );
+
+// Middleware to parse JSON
 app.use(express.json());
 
 // Connect to MongoDB
