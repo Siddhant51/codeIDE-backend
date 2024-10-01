@@ -152,7 +152,7 @@ app.post("/project", authenticateToken, async (req, res) => {
 });
 
 // Save project code
-app.put("/projects/:projectId", authenticateToken, async (req, res) => {
+app.put("/project/:projectId", authenticateToken, async (req, res) => {
   try {
     const { htmlCode, cssCode, jsCode } = req.body;
 
