@@ -6,12 +6,12 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 
 const app = express();
-// Configure CORS more specifically
-const corsOptions = {
-  allowedHeaders: "*", // Allow all headers
-  credentials: true, // Explicitly allow credentials
-};
-app.use(cors(corsOptions));
+// Allow any origin
+app.use(
+  cors({
+    origin: "*", // This allows all domains
+  })
+);
 app.use(express.json());
 
 // Connect to MongoDB
