@@ -8,7 +8,7 @@ const cors = require("cors");
 const app = express();
 
 // Handle OPTIONS request (preflight requests for all routes)
-app.options("*", cors());
+// app.options("*", cors());
 
 // Allow only specific frontend URLs and allow credentials
 app.use(
