@@ -6,7 +6,12 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
+// Allow requests from your frontend's domain
+app.use(
+  cors({
+    origin: "https://code-ide-frontend.vercel.app", // Specify your frontend domain
+  })
+);
 app.use(express.json());
 
 // Connect to MongoDB
